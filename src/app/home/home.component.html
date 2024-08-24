@@ -15,11 +15,17 @@
         @for (country of countries$ | async | slice : pageIndex * pageSize :
         pageIndex * pageSize + pageSize; track country.countryCode) {
         <mat-list-item role="listitem"
+<<<<<<< HEAD
           ><a
             [routerLink]="['/country', country.countryCode]"
             style="color: inherit"
             >{{ country.name }}</a
           ></mat-list-item
+=======
+          ><a [routerLink]="['/country', country.countryCode]">{{
+            country.name
+          }}</a></mat-list-item
+>>>>>>> 3d25847f85a225380a97d6023a52d8337fafe0b3
         >
         }
       </mat-list>
