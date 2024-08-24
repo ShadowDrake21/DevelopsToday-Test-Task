@@ -1,10 +1,11 @@
+import { provideHttpClient } from '@angular/common/http';
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter } from '@angular/router';
 
+import { environment } from '../environments/environment.development';
 import { routes } from './app.routes';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { API_URL_TOKEN } from './constants/tokens.constants';
-import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -12,6 +13,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync(),
     provideHttpClient(),
-    { provide: API_URL_TOKEN, useValue: 'https://date.nager.at/api/v3' },
+    { provide: API_URL_TOKEN, useValue: environment.API_BASE_URL },
   ],
 };

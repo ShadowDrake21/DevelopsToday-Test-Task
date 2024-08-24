@@ -1,11 +1,12 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
-import { ICountry } from '../../../models/country.interface';
-import { CountriesService } from '../../../services/countries.service';
-import { map, Observable } from 'rxjs';
-import { IHoliday } from '../../../models/holiday.interface';
-import { MatCardModule } from '@angular/material/card';
 import { AsyncPipe, DatePipe, NgIf } from '@angular/common';
+import { Component, inject, Input, OnInit } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
+import { map, Observable } from 'rxjs';
+
+import { ICountry } from '../../../models/country.interface';
+import { IHoliday } from '../../../models/holiday.interface';
+import { CountriesService } from '../../../services/countries.service';
 
 @Component({
   selector: 'app-country-widget',

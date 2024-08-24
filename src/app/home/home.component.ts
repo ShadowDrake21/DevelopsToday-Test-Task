@@ -1,5 +1,10 @@
+import { AsyncPipe, JsonPipe, NgFor, SlicePipe } from '@angular/common';
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
-import { CountriesService } from '../services/countries.service';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { RouterLink } from '@angular/router';
 import {
   debounceTime,
   distinctUntilChanged,
@@ -10,15 +15,11 @@ import {
   switchMap,
   tap,
 } from 'rxjs';
+
 import { ICountry } from '../models/country.interface';
-import { AsyncPipe, JsonPipe, NgFor, SlicePipe } from '@angular/common';
-import { MatInputModule } from '@angular/material/input';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { MatListModule } from '@angular/material/list';
-import { RouterLink } from '@angular/router';
-import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
-import { CountryWidgetComponent } from './components/country-widget/country-widget.component';
 import { RandomCountryPipe } from '../pipes/random-country.pipe';
+import { CountriesService } from '../services/countries.service';
+import { CountryWidgetComponent } from './components/country-widget/country-widget.component';
 
 @Component({
   selector: 'app-home',

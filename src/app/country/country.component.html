@@ -1,6 +1,8 @@
-<section class="country">
+<section class="section country">
   <div class="container">
-    <h1 class="country__title">{{ countryName }}, {{ activeYear }}</h1>
+    <h1 class="country__title">
+      {{ countryName }}, {{ activeYear$$.getValue() }}
+    </h1>
     <div>
       <h3 class="country__title">Holidays:</h3>
       <mat-list role="list">
@@ -20,6 +22,13 @@
         </mat-list-item>
         }
       </mat-list>
+      <div class="country__btns">
+        @for (year of years; track year) {
+        <button type="button" class="country__btn" (click)="updateYear(year)">
+          {{ year }}
+        </button>
+        }
+      </div>
     </div>
   </div>
 </section>

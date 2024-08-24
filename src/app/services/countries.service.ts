@@ -1,9 +1,10 @@
-import { inject, Inject, Injectable } from '@angular/core';
-import { API_URL_TOKEN } from '../constants/tokens.constants';
 import { HttpClient } from '@angular/common/http';
+import { Inject, inject, Injectable } from '@angular/core';
+import { map } from 'rxjs';
+
+import { API_URL_TOKEN } from '../constants/tokens.constants';
 import { ICountry } from '../models/country.interface';
 import { IHoliday } from '../models/holiday.interface';
-import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

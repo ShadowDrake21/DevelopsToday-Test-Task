@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
 import { HeaderComponent } from './shared/components/header/header.component';
 
 @Component({
@@ -10,5 +11,5 @@ import { HeaderComponent } from './shared/components/header/header.component';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'DevelopsToday_Task';
+  @Input('test') count = 0;
 }
