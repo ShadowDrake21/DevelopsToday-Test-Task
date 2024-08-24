@@ -32,6 +32,6 @@ export class CountriesService {
   getCountryName(countryCode: string) {
     return this.http
       .get<any>(`${this.apiUrlToken}/CountryInfo/${countryCode}`)
-      .pipe(map((info) => info.commonName as string));
+      .pipe(map(info => info.commonName as string));
   }
 }

@@ -44,7 +44,7 @@ export class CountryComponent implements OnInit, OnDestroy {
     this.countriesService
       .getCountryName(this.countryCode)
       .pipe(takeUntil(this.destroy$$))
-      .subscribe((name) => (this.countryName = name));
+      .subscribe(name => (this.countryName = name));
   }
 
   updateYear(newYear: number) {
@@ -53,7 +53,7 @@ export class CountryComponent implements OnInit, OnDestroy {
 
   fetchHolidaysByYear() {
     this.holidays$ = this.activeYear$$.pipe(
-      switchMap((year) =>
+      switchMap(year =>
         this.countriesService.getPublicHolidaysByYear(this.countryCode, year)
       )
     );

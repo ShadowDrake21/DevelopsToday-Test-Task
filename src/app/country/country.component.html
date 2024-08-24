@@ -7,26 +7,26 @@
       <h3 class="country__title">Holidays:</h3>
       <mat-list role="list">
         @for (holiday of holidays$ | async; track $index) {
-        <mat-list-item role="listitem" matListItemLine style="display: flex">
-          <div>
-            <span>{{ holiday.name | uppercase }}</span
-            >:
-            <span
-              ><u>{{ holiday.date | date : "EEEE, dd MMMM y" }}</u></span
-            >
-            -
-            <span
-              ><strong>{{ holiday.types[0] }}</strong></span
-            >
-          </div>
-        </mat-list-item>
+          <mat-list-item role="listitem" matListItemLine style="display: flex">
+            <div>
+              <span>{{ holiday.name | uppercase }}</span
+              >:
+              <span
+                ><u>{{ holiday.date | date: 'EEEE, dd MMMM y' }}</u></span
+              >
+              -
+              <span
+                ><strong>{{ holiday.types[0] }}</strong></span
+              >
+            </div>
+          </mat-list-item>
         }
       </mat-list>
       <div class="country__btns">
         @for (year of years; track year) {
-        <button type="button" class="country__btn" (click)="updateYear(year)">
-          {{ year }}
-        </button>
+          <button type="button" class="country__btn" (click)="updateYear(year)">
+            {{ year }}
+          </button>
         }
       </div>
     </div>

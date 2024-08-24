@@ -1,12 +1,17 @@
 {
   "root": true,
+  "parser": "@typescript-eslint/parser",
   "ignorePatterns": ["projects/**/*"],
   "plugins": ["import", "unused-imports", "simple-import-sort"],
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".ts", ".js"]
+        "extensions": [".js", ".ts", ".d.ts"],
+        "moduleDirectory": ["node_modules", "src/"]
       }
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".js"]
     }
   },
   "overrides": [
@@ -27,16 +32,18 @@
         "import/first": "error",
         "import/newline-after-import": "error",
         "import/no-duplicates": "error",
-        "max-len": [
-          "error",
-          120
-        ],
+        "max-len": ["error", 120],
         "simple-import-sort/imports": "error",
         "simple-import-sort/exports": "error",
         "unused-imports/no-unused-imports": "error",
         "unused-imports/no-unused-vars": [
           "warn",
-          { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+          {
+            "vars": "all",
+            "varsIgnorePattern": "^_",
+            "args": "after-used",
+            "argsIgnorePattern": "^_"
+          }
         ],
         "@angular-eslint/directive-selector": [
           "error",

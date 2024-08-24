@@ -11,6 +11,7 @@ import {
   map,
   Observable,
   of,
+  shareReplay,
   Subscription,
   switchMap,
   tap,
@@ -43,7 +44,7 @@ import { CountryWidgetComponent } from './components/country-widget/country-widg
 export class HomeComponent implements OnInit, OnDestroy {
   private countriesService = inject(CountriesService);
 
-  private allCountries$!: Observable<ICountry[]>;
+  allCountries$!: Observable<ICountry[]>;
   countries$!: Observable<ICountry[]>;
   searchFormControl = new FormControl('');
   private searchSubscription!: Subscription;
@@ -53,7 +54,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   pageIndex: number = 0;
 
   ngOnInit(): void {
-    this.allCountries$ = this.countriesService.getAllCountries();
+    this.allCountries$ = this.countriesService
+      .getAllCountries()
+      .pipe(shareReplay());
     this.countries$ = this.allCountries$;
 
     this.reactiveCountrySearch();
@@ -64,13 +67,13 @@ export class HomeComponent implements OnInit, OnDestroy {
       .pipe(
         debounceTime(600),
         distinctUntilChanged(),
-        switchMap((searchTerm) => {
+        switchMap(searchTerm => {
           if (!searchTerm || searchTerm.length === 0) {
             return this.allCountries$;
           } else {
             return this.allCountries$.pipe(
-              map((countries) =>
-                countries.filter((country) =>
+              map(countries =>
+                countries.filter(country =>
                   country.name.toLowerCase().includes(searchTerm.toLowerCase())
                 )
               )
@@ -81,7 +84,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.pageIndex = 0;
         })
       )
-      .subscribe((result) => (this.countries$ = of(result)));
+      .subscribe(result => (this.countries$ = of(result)));
   }
 
   handlePageEvent(e: PageEvent) {

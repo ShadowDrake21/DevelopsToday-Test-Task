@@ -5,11 +5,11 @@ export const routes: Routes = [
   {
     path: 'home',
     loadComponent: () =>
-      import('./home/home.component').then((c) => c.HomeComponent),
+      import('./home/home.component').then(c => c.HomeComponent),
   },
   {
     path: 'country/:code',
     loadComponent: () =>
-      import('./country/country.component').then((c) => c.CountryComponent),
+      import('./country/country.component').then(c => c.CountryComponent),
   },
 ];

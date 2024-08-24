@@ -1,46 +1,48 @@
 <section class="section home">
   <div class="container home__container">
-    @if (countries$ | async; as countries) {
     <div class="home__part">
-      <mat-form-field class="home__search">
-        <mat-label>Country</mat-label>
-        <input
-          matInput
-          placeholder="Poland"
-          [value]="searchFormControl.value"
-          [formControl]="searchFormControl"
-        />
-      </mat-form-field>
-      <div class="home__list-wrapper">
-        <mat-list role="list">
-          @for (country of countries | slice : pageIndex * pageSize : pageIndex
-          * pageSize + pageSize; track country.countryCode) {
-          <mat-list-item role="listitem" matListItemLine
-            ><a
-              [routerLink]="['/country', country.countryCode]"
-              class="home__list-link"
-              >{{ country.name }}</a
-            ></mat-list-item
-          >
-          }
-        </mat-list>
-        <mat-paginator
-          (page)="handlePageEvent($event)"
-          [length]="countries.length"
-          [pageSize]="pageSize"
-          [pageSizeOptions]="[pageSize]"
-          [pageIndex]="pageIndex"
-        >
-        </mat-paginator>
-      </div>
+      @if (countries$ | async; as countries) {
+        <mat-form-field class="home__search">
+          <mat-label>Country</mat-label>
+          <input
+            matInput
+            placeholder="Poland"
+            [value]="searchFormControl.value"
+            [formControl]="searchFormControl" />
+        </mat-form-field>
+        <div class="home__list-wrapper">
+          <mat-list role="list">
+            @for (
+              country of countries
+                | slice: pageIndex * pageSize : pageIndex * pageSize + pageSize;
+              track country.countryCode
+            ) {
+              <mat-list-item role="listitem" matListItemLine
+                ><a
+                  [routerLink]="['/country', country.countryCode]"
+                  class="home__list-link"
+                  >{{ country.name }}</a
+                ></mat-list-item
+              >
+            }
+          </mat-list>
+          <mat-paginator
+            (page)="handlePageEvent($event)"
+            [length]="countries.length"
+            [pageSize]="pageSize"
+            [pageSizeOptions]="[pageSize]"
+            [pageIndex]="pageIndex">
+          </mat-paginator>
+        </div>
+      }
     </div>
     <div class="home__part">
-      @if (countries && countries.length > 0) { @for (i of [1,2,3]; track i) {
-      <app-country-widget
-        [country]="countries | randomCountry"
-      ></app-country-widget
-      >}}
+      @if (allCountries$ | async; as allCountries) {
+        @for (i of [1, 2, 3]; track i) {
+          <app-country-widget
+            [country]="allCountries | randomCountry"></app-country-widget>
+        }
+      }
     </div>
-    }
   </div>
 </section>

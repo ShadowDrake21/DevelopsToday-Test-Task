@@ -1,8 +1,7 @@
 <mat-card
   class="widget-card"
   appearance="outlined"
-  *ngIf="nextHoliday$ | async as nextHoliday"
->
+  *ngIf="nextHoliday$ | async as nextHoliday">
   <mat-card-header class="widget-card__header">
     <mat-card-title
       ><a [routerLink]="['/country', country.countryCode]">{{
@@ -13,7 +12,7 @@
   <mat-card-content>
     <p><strong>Next holiday:</strong></p>
     <p>{{ nextHoliday.name }}</p>
-    <p>{{ nextHoliday.date | date : "EEE, dd MMM y" }}</p>
+    <p>{{ nextHoliday.date | date: 'EEE, dd MMM y' }}</p>
   </mat-card-content>
   <mat-card-footer class="example-card-footer"> </mat-card-footer>
 </mat-card>

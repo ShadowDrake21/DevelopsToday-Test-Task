@@ -25,6 +25,6 @@ export class CountryWidgetComponent implements OnInit {
   ngOnInit(): void {
     this.nextHoliday$ = this.countriesService
       .getNextPublicHolidays(this.country.countryCode)
-      .pipe(map((holidays) => holidays[0]));
+      .pipe(map(holidays => holidays[0]));
   }
 }
