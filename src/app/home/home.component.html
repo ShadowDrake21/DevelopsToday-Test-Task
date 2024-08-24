@@ -1,0 +1,37 @@
+<section class="home">
+  <div class="container">
+    <mat-form-field class="home__search">
+      <mat-label>Country</mat-label>
+      <input
+        matInput
+        placeholder="Poland"
+        [value]="searchFormControl.value"
+        [formControl]="searchFormControl"
+      />
+    </mat-form-field>
+
+    <div>
+      <mat-list role="list">
+        @for (country of countries$ | async | slice : pageIndex * pageSize :
+        pageIndex * pageSize + pageSize; track country.countryCode) {
+        <mat-list-item role="listitem"
+          ><a
+            [routerLink]="['/country', country.countryCode]"
+            style="color: inherit"
+            >{{ country.name }}</a
+          ></mat-list-item
+        >
+        }
+      </mat-list>
+      <mat-paginator
+        (page)="handlePageEvent($event)"
+        [length]="(countries$ | async)?.length"
+        [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 20, 25]"
+        [pageIndex]="pageIndex"
+      >
+      </mat-paginator>
+    </div>
+  </div>
+</section>
+{{ countries$ | async | json }}
