@@ -1,0 +1,10 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.header {
+  &__toolbar-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
