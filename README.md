@@ -34,7 +34,7 @@ This application uses:
 
 # Author's note
 
-In the project I am using SCSS pre-processors.
+In the project I am using SCSS pre-processor.
 
 The search is based on previously fetched data.
 
