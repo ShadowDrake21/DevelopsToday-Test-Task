@@ -23,3 +23,12 @@ body {
   padding: 0 10px;
   margin: 0 auto;
 }
+
+.home__search {
+  width: 100%;
+}
+
+mat-list-item {
+  display: flex !important;
+  text-align: center;
+}

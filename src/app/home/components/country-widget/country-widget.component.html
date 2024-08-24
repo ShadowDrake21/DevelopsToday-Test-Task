@@ -1,0 +1,19 @@
+<mat-card
+  class="widget-card"
+  appearance="outlined"
+  *ngIf="nextHoliday$ | async as nextHoliday"
+>
+  <mat-card-header class="widget-card__header">
+    <mat-card-title
+      ><a [routerLink]="['/country', country.countryCode]">{{
+        country.name
+      }}</a></mat-card-title
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <p><strong>Next holiday:</strong></p>
+    <p>{{ nextHoliday.name }}</p>
+    <p>{{ nextHoliday.date }}</p>
+  </mat-card-content>
+  <mat-card-footer class="example-card-footer"> </mat-card-footer>
+</mat-card>

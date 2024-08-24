@@ -1,0 +1,19 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 20px 10px;
+  background-color: #fdfbff;
+  border-top: 1px solid #6c757d;
+
+  &-link {
+    text-decoration: none;
+    color: #000;
+    text-align: center;
+  }
+
+  &-link:hover {
+    text-decoration: underline;
+  }
+}

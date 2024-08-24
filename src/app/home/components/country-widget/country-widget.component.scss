@@ -1,0 +1,15 @@
+.widget-card {
+  max-width: 250px;
+  width: 100%;
+
+  text-align: center;
+  padding: 10px;
+
+  &__header {
+    justify-content: center;
+
+    mat-card-title a {
+      color: inherit;
+    }
+  }
+}
