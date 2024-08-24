@@ -1,1 +1,25 @@
-<p>country works!</p>
+<section class="country">
+  <div class="container">
+    <h1 class="country__title">{{ countryName }}, {{ activeYear }}</h1>
+    <div>
+      <h3 class="country__title">Holidays:</h3>
+      <mat-list role="list">
+        @for (holiday of holidays$ | async; track $index) {
+        <mat-list-item role="listitem" matListItemLine style="display: flex">
+          <div>
+            <span>{{ holiday.name | uppercase }}</span
+            >:
+            <span
+              ><u>{{ holiday.date | date : "EEEE, dd MMMM y" }}</u></span
+            >
+            -
+            <span
+              ><strong>{{ holiday.types[0] }}</strong></span
+            >
+          </div>
+        </mat-list-item>
+        }
+      </mat-list>
+    </div>
+  </div>
+</section>

@@ -8,7 +8,7 @@ export const routes: Routes = [
       import('./home/home.component').then((c) => c.HomeComponent),
   },
   {
-    path: 'country/:id',
+    path: 'country/:code',
     loadComponent: () =>
       import('./country/country.component').then((c) => c.CountryComponent),
   },

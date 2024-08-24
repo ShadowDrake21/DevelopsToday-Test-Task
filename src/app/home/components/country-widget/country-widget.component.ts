@@ -4,13 +4,13 @@ import { CountriesService } from '../../../services/countries.service';
 import { map, Observable } from 'rxjs';
 import { IHoliday } from '../../../models/holiday.interface';
 import { MatCardModule } from '@angular/material/card';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe, DatePipe, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-country-widget',
   standalone: true,
-  imports: [MatCardModule, AsyncPipe, NgIf, RouterLink],
+  imports: [MatCardModule, AsyncPipe, NgIf, RouterLink, DatePipe],
   templateUrl: './country-widget.component.html',
   styleUrl: './country-widget.component.scss',
 })
